@@ -21,31 +21,8 @@ namespace MiniProjetoCadastroTarefa
         public MainWindow()
         {
             InitializeComponent();
-            PreencherComboFormulario();
         }
-
-        private void cmbFormulario_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cmbFormulario.SelectedItem is Classes.ClsTipos.clsTiposEnumerados.Formulario formularioSelecionado)
-            {
-                Window janela = formularioSelecionado switch
-                {
-                    Classes.ClsTipos.clsTiposEnumerados.Formulario.Tarefas => new FrmTarefaPesquisa(),
-                    Classes.ClsTipos.clsTiposEnumerados.Formulario.TarefasCad => new FrmTarefaCadastro(Classes.ClsTipos.clsTiposEnumerados.AcaoFormulario.Incluir),
-                    _ => throw new NotImplementedException()
-                };
-
-                cmbFormulario.SelectedIndex = -1;
-                janela?.Show();
-            }
-        }
-        private void PreencherComboFormulario()
-        {
-            foreach (var form in Enum.GetValues(typeof(Classes.ClsTipos.clsTiposEnumerados.Formulario)))
-            {
-                cmbFormulario.Items.Add(form);
-            }
-        }
+        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -53,8 +30,8 @@ namespace MiniProjetoCadastroTarefa
             {
                 clsConfiguracao.Carregar();
 
-                MessageBox.Show("Configuração carregada com sucesso!\n" +
-                                $"Conexão: {clsConfiguracao.StringConexao}");
+                MessageBox.Show("Configuração carregada com sucesso!");
+                //                $"Conexão: {clsConfiguracao.StringConexao}");
             }
             catch (Exception ex)
             {
@@ -64,6 +41,11 @@ namespace MiniProjetoCadastroTarefa
         }
         
         private void btnCadTarefas_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void AbrirTarefas_Click(object sender, RoutedEventArgs e)
         {
             FrmTarefaPesquisa f = new FrmTarefaPesquisa();
             f.Show();

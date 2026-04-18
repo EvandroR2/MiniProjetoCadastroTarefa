@@ -7,86 +7,75 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
             Title="Principal" WindowStartupLocation="CenterScreen" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid Background="White">
-        <DockPanel>
-            <StackPanel Margin="0,0,0,10" DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
-                <StackPanel Margin="0,0,5,0" Orientation="Vertical">
-                    <Label Content="Cadastro Geral"  />
-                </StackPanel>
-                <StackPanel Margin="0,0,5,0" Orientation="Vertical">
-                    <Label Content="Ferramentas" />
+    <Grid>
 
-                </StackPanel>
-                <StackPanel Margin="550,0,5,0" Orientation="Vertical">
-                    <Label Content="Versão 2.0" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-                </StackPanel>
-            </StackPanel>
+        <Border Background="#EEEEEE" Grid.Row="0">
+            <Menu Background="Transparent">
 
-            <StackPanel x:Name="stpRodape" DockPanel.Dock="Bottom" Orientation="Horizontal">
-                <StackPanel Margin="0,0,5,0" Orientation="Vertical">
-                    <Label Content="Data:" />
-                </StackPanel>
-                <StackPanel Margin="0,0,5,0" Orientation="Vertical">
-                    <Label Content="11/02/2026" x:Name="DataDia" />
+                <MenuItem Header="Cadastro Geral">
+                    <MenuItem Header="Usuários"/>
+                    <MenuItem Header="Tarefas"/>
+                    <MenuItem Header="Desenvolvedor"/>
+                    <MenuItem Header="Status"/>
+                </MenuItem>
 
-                </StackPanel>
-                <StackPanel Margin="0,0,5,0" Orientation="Vertical">
-                    <Label Content="00:00" x:Name="DataHora"/>
-                </StackPanel>
-            </StackPanel>
+            </Menu>
+        </Border>
 
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Margin="10,0,5,0" Orientation="Vertical">
-                    </StackPanel>
-                    <StackPanel Margin="10,0,5,0" Orientation="Vertical">
-                    </StackPanel>
-                    <StackPanel Margin="550,0,5,0" Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal" >
+        <Grid Grid.Row="1" Margin="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Sistema de Tarefas"
+                   FontSize="26"
+                   FontWeight="Bold"
+                   Margin="0,0,0,20"/>
+
+            <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+
+                <Border Width="200" Height="150" Margin="10"
+                    Background="#3498DB" CornerRadius="10">
+                    <Button Background="Transparent"
+                        BorderThickness="0"
+                        Click="AbrirTarefas_Click">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="📋" FontSize="40" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Tarefas" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
                         </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel Margin="0,10,0,0" Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <StackPanel Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                            <StackPanel Margin="0,10,0,0" Orientation="Vertical">
-                                <Label Content="Cadastro de Tarefa" FontWeight="Bold" />
-                            <StackPanel Orientation="Horizontal"  Margin="20,10,0,0" >
-                                    
+                    </Button>
+                </Border>
 
-                                    <Button x:Name="btnCadTarefas" 
-                                            Width="80" 
-                                            Height="80" 
-                                            ToolTip="Cadastro de Tarefas" 
-                                            Click="btnCadTarefas_Click">
-                                    
-                                    <iconPacks:PackIconMicrons Kind="Drive" Width="58" Height="58" Foreground="Black"/>
-                                </Button>
-                            </StackPanel>
-
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal"  Margin="20,10,0,0" >
-                                <Button Width="80" Height="80" ToolTip="Sem Efeito">
-                                    <iconPacks:PackIconMicrons Kind="Calendar" Width="58" Height="58" Foreground="Black"/>
-                                </Button>
-
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal"  Margin="20,10,0,0" >
-                                <Button Width="80"  Height="80"  ToolTip="Sem Efeito">
-                                    <iconPacks:PackIconMicrons Kind="BoxTickOutline" Width="58" Height="58" Foreground="Black"/>
-                                </Button>
-
-                            </StackPanel>
+                <Border Width="200" Height="150" Margin="10"
+                    Background="#2ECC71" CornerRadius="10">
+                    <Button Background="Transparent" BorderThickness="0">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="👤" FontSize="40" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Usuários" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
                         </StackPanel>
-                        <GroupBox x:Name="grbConfiguracaoFormulario" Width="250" Height="300" >
-                            <ComboBox x:Name="cmbFormulario" Margin="10,10,10,10" Width="210" Height="30"  
-                                      SelectionChanged="cmbFormulario_SelectionChanged"  />
-                        </GroupBox>
+                    </Button>
+                </Border>
 
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-        </DockPanel>
+                <Border Width="200" Height="150" Margin="10"
+                    Background="#9B59B6" CornerRadius="10">
+                    <Button Background="Transparent" BorderThickness="0">
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="📊" FontSize="40" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Dashboard" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+            </WrapPanel>
+
+        </Grid>
+
     </Grid>
 </Window>
